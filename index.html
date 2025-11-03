@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artis Capital - Holding Hybride</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Import de la police Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        secondary: '#059669',
+                        dark: '#111827',
+                        light: '#F8FAFC',
+                        accent: '#7C3AED'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in-down': 'fadeInDown 0.8s ease-out',
+                        'slide-in-left': 'slideInLeft 0.8s ease-out',
+                        'slide-in-right': 'slideInRight 0.8s ease-out',
+                        'pulse-soft': 'pulseSoft 2s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'gradient-shift': 'gradientShift 8s ease infinite',
+                        'carousel-scroll': 'carouselScroll 30s linear infinite',
+                        'hero-subtitle': 'heroSubtitle 8s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Styles pour le logo en négatif (blanc) */
+        .logo-white {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Styles pour le logo normal (noir) */
+        .logo-normal {
+            filter: none;
+        }
+        /* Carousel Galerie */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            animation: carouselScroll 30s linear infinite;
+        }
+
+        .carousel-item {
+            flex: 0 0 300px;
+            height: 400px;
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-item:nth-child(3) {
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-container:hover .carousel-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes carouselScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 6));
+            }
+        }
+                /* Styles pour le fond d'étoiles */
+                .stars-background {
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            overflow: hidden;
+            position: relative;
+            padding-top: 80px; /* Compensation pour le menu fixe */
+        }
+
+        #stars {
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 1158px 1614px #FFF , 100px 781px #FFF , 1042px 232px #FFF , 1798px 642px #FFF , 897px 199px #FFF , 414px 779px #FFF , 334px 1632px #FFF , 360px 604px #FFF , 1473px 1271px #FFF , 216px 51px #FFF , 520px 744px #FFF , 1846px 1666px #FFF , 1689px 749px #FFF , 1268px 417px #FFF , 394px 1674px #FFF , 1505px 1529px #FFF , 765px 1388px #FFF , 1068px 1686px #FFF , 1994px 137px #FFF , 888px 1604px #FFF , 1115px 306px #FFF , 1073px 1448px #FFF , 443px 963px #FFF , 790px 817px #FFF , 667px 900px #FFF , 64px 819px #FFF , 1054px 89px #FFF , 1989px 24px #FFF , 467px 651px #FFF , 67px 767px #FFF , 703px 74px #FFF , 1565px 1569px #FFF , 426px 1512px #FFF , 228px 357px #FFF , 1594px 293px #FFF , 1190px 66px #FFF , 1638px 1506px #FFF , 1431px 1674px #FFF , 1337px 1642px #FFF , 60px 1761px #FFF , 1689px 297px #FFF , 807px 542px #FFF , 1773px 1228px #FFF , 500px 1714px #FFF , 307px 46px #FFF , 298px 1488px #FFF , 1027px 166px #FFF , 1995px 1198px #FFF , 615px 1099px #FFF , 1577px 397px #FFF , 1849px 1700px #FFF , 1879px 1349px #FFF , 934px 1689px #FFF , 66px 1200px #FFF , 1295px 42px #FFF , 1984px 747px #FFF , 150px 953px #FFF , 173px 1743px #FFF , 25px 315px #FFF , 57px 216px #FFF , 119px 513px #FFF , 895px 466px #FFF , 1600px 1276px #FFF , 615px 357px #FFF , 870px 630px #FFF , 1281px 1817px #FFF , 939px 1028px #FFF , 1166px 1725px #FFF , 1048px 758px #FFF , 209px 1817px #FFF , 1747px 520px #FFF , 795px 544px #FFF , 646px 1056px #FFF , 771px 192px #FFF , 503px 509px #FFF , 142px 1514px #FFF , 315px 1482px #FFF , 1911px 581px #FFF , 41px 243px #FFF , 608px 1822px #FFF , 1373px 1241px #FFF , 1938px 1316px #FFF , 1574px 1364px #FFF , 372px 527px #FFF , 1851px 1998px #FFF , 697px 967px #FFF , 925px 1573px #FFF , 741px 1960px #FFF , 1485px 467px #FFF , 283px 489px #FFF , 1334px 642px #FFF , 387px 71px #FFF , 689px 1604px #FFF , 177px 1763px #FFF , 12px 1757px #FFF , 938px 416px #FFF , 1848px 1534px #FFF , 614px 946px #FFF , 1935px 309px #FFF , 961px 741px #FFF , 1466px 986px #FFF , 563px 619px #FFF , 133px 488px #FFF , 56px 1110px #FFF , 40px 540px #FFF , 788px 1326px #FFF , 1637px 980px #FFF , 1145px 667px #FFF , 400px 1989px #FFF , 960px 1225px #FFF , 1537px 491px #FFF , 749px 504px #FFF , 1621px 1953px #FFF , 551px 1747px #FFF , 1143px 1612px #FFF , 22px 1834px #FFF , 1904px 1323px #FFF , 478px 1851px #FFF , 74px 390px #FFF , 1179px 1309px #FFF , 295px 78px #FFF , 57px 1242px #FFF , 175px 1155px #FFF , 1105px 1330px #FFF , 552px 1717px #FFF , 451px 1922px #FFF , 5px 1342px #FFF , 1443px 1160px #FFF , 216px 1730px #FFF , 918px 1285px #FFF , 892px 705px #FFF , 1871px 990px #FFF , 467px 1208px #FFF , 963px 294px #FFF , 1594px 1454px #FFF , 1548px 1529px #FFF , 1609px 113px #FFF , 347px 331px #FFF , 557px 1396px #FFF , 308px 844px #FFF , 1042px 382px #FFF , 66px 1285px #FFF , 1501px 368px #FFF , 25px 1964px #FFF , 675px 439px #FFF , 905px 1445px #FFF , 1366px 104px #FFF , 1883px 24px #FFF , 33px 627px #FFF , 1430px 1397px #FFF , 679px 966px #FFF , 608px 833px #FFF , 484px 720px #FFF , 1074px 384px #FFF , 334px 1166px #FFF , 991px 767px #FFF , 112px 513px #FFF , 411px 1859px #FFF , 1843px 1488px #FFF , 1029px 1278px #FFF , 1132px 174px #FFF , 1989px 1639px #FFF , 1399px 1385px #FFF , 1796px 1326px #FFF , 1083px 428px #FFF , 1872px 1696px #FFF , 931px 1552px #FFF , 316px 1412px #FFF , 244px 606px #FFF , 203px 871px #FFF , 1560px 811px #FFF , 1500px 110px #FFF , 263px 453px #FFF , 1570px 465px #FFF , 1393px 1022px #FFF , 1567px 612px #FFF , 728px 1771px #FFF , 1310px 1508px #FFF , 252px 2px #FFF , 1387px 786px #FFF , 1709px 620px #FFF , 1828px 931px #FFF , 1630px 92px #FFF , 1349px 1457px #FFF , 561px 1639px #FFF , 51px 1230px #FFF , 1969px 623px #FFF , 607px 1494px #FFF , 1956px 1716px #FFF , 1941px 302px #FFF , 187px 309px #FFF , 959px 1943px #FFF , 1386px 914px #FFF , 1860px 1165px #FFF , 1502px 232px #FFF , 421px 1522px #FFF , 472px 761px #FFF , 32px 1025px #FFF , 1754px 626px #FFF , 1704px 473px #FFF , 978px 1402px #FFF , 546px 967px #FFF , 600px 1455px #FFF , 1342px 227px #FFF , 899px 1099px #FFF , 552px 1276px #FFF , 1333px 1180px #FFF , 25px 964px #FFF , 1497px 1987px #FFF , 472px 60px #FFF , 77px 588px #FFF , 941px 1654px #FFF , 1979px 271px #FFF , 1926px 1226px #FFF , 197px 302px #FFF , 1249px 1271px #FFF , 1975px 1015px #FFF , 535px 1076px #FFF , 1559px 662px #FFF , 474px 889px #FFF , 541px 1495px #FFF , 1685px 767px #FFF , 554px 717px #FFF , 1105px 1600px #FFF , 1972px 393px #FFF , 582px 789px #FFF , 100px 1931px #FFF , 744px 396px #FFF , 1047px 1429px #FFF , 1838px 546px #FFF , 125px 1696px #FFF , 673px 1354px #FFF , 1548px 1499px #FFF , 719px 87px #FFF , 1710px 373px #FFF , 1894px 733px #FFF , 1065px 1040px #FFF , 917px 282px #FFF , 1909px 483px #FFF , 1052px 1889px #FFF , 974px 518px #FFF , 1607px 366px #FFF , 1227px 1303px #FFF , 1187px 558px #FFF , 151px 770px #FFF , 61px 1576px #FFF , 617px 45px #FFF , 746px 1360px #FFF , 1490px 866px #FFF , 717px 702px #FFF , 1212px 1882px #FFF , 1550px 129px #FFF , 161px 1522px #FFF , 520px 1559px #FFF , 1840px 1515px #FFF , 289px 1634px #FFF , 1495px 491px #FFF , 1372px 1568px #FFF , 1452px 1342px #FFF , 1155px 255px #FFF , 328px 549px #FFF , 955px 1033px #FFF , 423px 1805px #FFF , 1427px 1413px #FFF , 694px 819px #FFF , 1032px 1465px #FFF , 1654px 14px #FFF , 953px 1010px #FFF , 1699px 111px #FFF , 544px 451px #FFF , 228px 1436px #FFF , 469px 498px #FFF , 820px 1721px #FFF , 992px 598px #FFF , 683px 434px #FFF , 807px 1150px #FFF , 695px 1719px #FFF , 1481px 1827px #FFF , 12px 1259px #FFF , 1532px 1219px #FFF , 1924px 1262px #FFF , 771px 441px #FFF , 659px 1038px #FFF , 69px 1266px #FFF , 1913px 1397px #FFF , 704px 1544px #FFF , 1616px 1431px #FFF , 346px 1638px #FFF , 1152px 803px #FFF , 1234px 1659px #FFF , 198px 1215px #FFF , 674px 306px #FFF , 1721px 1979px #FFF , 1252px 1273px #FFF , 1068px 985px #FFF , 543px 1038px #FFF , 1995px 403px #FFF , 247px 1805px #FFF , 1221px 1831px #FFF , 964px 909px #FFF , 39px 1652px #FFF , 455px 1026px #FFF , 1150px 993px #FFF , 1550px 710px #FFF , 1430px 1885px #FFF , 1940px 694px #FFF , 561px 645px #FFF , 954px 354px #FFF , 1901px 953px #FFF , 1067px 5px #FFF , 274px 663px #FFF , 542px 1491px #FFF , 1716px 1901px #FFF , 1686px 1477px #FFF , 1999px 992px #FFF , 879px 230px #FFF , 1576px 403px #FFF , 1633px 50px #FFF , 1607px 1225px #FFF , 30px 1290px #FFF , 227px 1941px #FFF , 295px 433px #FFF , 913px 1825px #FFF , 67px 68px #FFF , 1440px 974px #FFF , 386px 789px #FFF , 1833px 1641px #FFF , 988px 1320px #FFF , 833px 65px #FFF , 1314px 263px #FFF , 1977px 1947px #FFF , 1578px 1279px #FFF , 1335px 1499px #FFF , 1660px 1950px #FFF , 217px 1520px #FFF , 62px 1673px #FFF , 1921px 1764px #FFF , 494px 839px #FFF , 1401px 1600px #FFF , 981px 1789px #FFF , 49px 1822px #FFF , 978px 1085px #FFF , 479px 33px #FFF , 421px 1750px #FFF , 88px 356px #FFF , 1582px 1623px #FFF , 1378px 659px #FFF , 1550px 1919px #FFF , 1501px 987px #FFF , 578px 1391px #FFF , 728px 715px #FFF , 740px 486px #FFF , 291px 411px #FFF , 968px 1489px #FFF , 557px 1083px #FFF , 253px 1872px #FFF , 1489px 953px #FFF , 1085px 1614px #FFF , 205px 1662px #FFF , 845px 724px #FFF , 718px 520px #FFF , 432px 1064px #FFF , 608px 1152px #FFF , 1257px 526px #FFF , 1010px 1711px #FFF , 438px 51px #FFF , 185px 1540px #FFF , 223px 1648px #FFF , 1844px 953px #FFF , 979px 1158px #FFF , 602px 1175px #FFF , 1786px 1754px #FFF , 1562px 1229px #FFF , 1431px 1183px #FFF , 89px 928px #FFF , 1660px 1965px #FFF , 907px 877px #FFF , 1085px 1566px #FFF , 274px 316px #FFF , 1251px 634px #FFF , 921px 1911px #FFF , 1075px 1323px #FFF , 225px 1119px #FFF , 1079px 303px #FFF , 45px 632px #FFF , 1165px 610px #FFF , 1071px 1204px #FFF , 1979px 1334px #FFF , 128px 1207px #FFF , 1636px 1711px #FFF , 1449px 1227px #FFF , 1082px 262px #FFF , 1629px 1786px #FFF , 1072px 610px #FFF , 481px 1910px #FFF , 1804px 356px #FFF , 1935px 1794px #FFF , 1336px 181px #FFF , 1098px 1584px #FFF , 1625px 205px #FFF , 1099px 1718px #FFF , 165px 102px #FFF , 334px 970px #FFF , 1723px 296px #FFF , 1904px 325px #FFF , 1135px 596px #FFF , 340px 729px #FFF , 767px 1772px #FFF , 994px 41px #FFF , 1187px 692px #FFF , 624px 681px #FFF , 191px 1389px #FFF , 997px 399px #FFF , 1988px 1076px #FFF , 1019px 1869px #FFF , 1705px 269px #FFF , 1px 454px #FFF , 24px 1039px #FFF , 1335px 133px #FFF , 389px 1254px #FFF , 969px 3px #FFF , 1780px 390px #FFF , 1651px 47px #FFF , 1201px 355px #FFF , 1656px 1304px #FFF , 918px 618px #FFF , 67px 1167px #FFF , 361px 871px #FFF , 1378px 1314px #FFF , 208px 253px #FFF , 225px 421px #FFF , 768px 877px #FFF , 1288px 1550px #FFF , 1408px 715px #FFF , 1443px 148px #FFF , 841px 807px #FFF , 969px 249px #FFF , 1836px 305px #FFF , 63px 803px #FFF , 877px 734px #FFF , 914px 1175px #FFF , 1710px 1503px #FFF , 1572px 731px #FFF , 960px 1168px #FFF , 149px 1328px #FFF , 388px 1766px #FFF , 24px 1263px #FFF , 1774px 1475px #FFF , 1606px 371px #FFF , 594px 1238px #FFF , 1926px 819px #FFF , 730px 666px #FFF , 1095px 1764px #FFF , 581px 837px #FFF , 351px 1478px #FFF , 1881px 1666px #FFF , 482px 1739px #FFF , 246px 1595px #FFF , 174px 379px #FFF , 667px 845px #FFF , 526px 1585px #FFF , 875px 1884px #FFF , 1871px 450px #FFF , 1701px 1167px #FFF , 891px 662px #FFF , 762px 154px #FFF , 1514px 367px #FFF , 1101px 1082px #FFF , 1641px 1555px #FFF , 1184px 22px #FFF , 1973px 1165px #FFF , 623px 1128px #FFF , 1365px 148px #FFF , 842px 1705px #FFF , 1327px 1021px #FFF , 1576px 783px #FFF , 683px 886px #FFF , 702px 1862px #FFF , 523px 689px #FFF , 1289px 1117px #FFF , 1223px 378px #FFF , 166px 1416px #FFF , 1660px 76px #FFF , 457px 849px #FFF , 1301px 1521px #FFF , 627px 1035px #FFF , 1514px 1030px #FFF , 206px 1660px #FFF , 1189px 535px #FFF , 1207px 1965px #FFF , 591px 428px #FFF , 1248px 919px #FFF , 227px 953px #FFF , 74px 632px #FFF , 1216px 1010px #FFF , 729px 802px #FFF , 281px 1920px #FFF , 89px 294px #FFF , 1690px 1202px #FFF , 1604px 1773px #FFF , 1573px 1056px #FFF , 482px 368px #FFF , 814px 1139px #FFF , 280px 864px #FFF , 1391px 228px #FFF , 549px 692px #FFF , 938px 1348px #FFF , 1627px 1874px #FFF , 1454px 49px #FFF , 477px 588px #FFF , 362px 1695px #FFF , 1495px 615px #FFF , 1305px 710px #FFF , 1607px 1630px #FFF , 1614px 319px #FFF , 380px 1225px #FFF , 1210px 1615px #FFF , 1707px 1475px #FFF , 1107px 346px #FFF , 1981px 1073px #FFF , 1002px 224px #FFF , 869px 453px #FFF , 1507px 557px #FFF , 1848px 673px #FFF , 71px 32px #FFF , 1147px 1937px #FFF , 1848px 1743px #FFF , 1790px 500px #FFF , 557px 572px #FFF , 872px 756px #FFF , 1875px 1253px #FFF , 1986px 347px #FFF , 264px 637px #FFF , 1960px 1813px #FFF , 855px 923px #FFF , 1447px 1450px #FFF , 1069px 38px #FFF , 1304px 1328px #FFF , 402px 812px #FFF , 371px 1691px #FFF , 1772px 1490px #FFF , 1574px 1703px #FFF , 1487px 346px #FFF , 1230px 636px #FFF , 1082px 1463px #FFF , 1364px 1176px #FFF , 668px 1806px #FFF , 60px 1949px #FFF , 1352px 36px #FFF , 1022px 796px #FFF , 1592px 908px #FFF , 1943px 150px #FFF , 865px 583px #FFF , 1387px 711px #FFF , 1605px 1560px #FFF , 1533px 1138px #FFF , 176px 995px #FFF , 924px 1412px #FFF , 1458px 1007px #FFF , 213px 709px #FFF , 1995px 1557px #FFF , 1874px 598px #FFF , 1287px 359px #FFF , 970px 28px #FFF , 768px 1377px #FFF , 820px 938px #FFF , 783px 373px #FFF , 1452px 1058px #FFF , 240px 72px #FFF , 1153px 1163px #FFF , 1068px 1292px #FFF , 154px 240px #FFF , 1724px 896px #FFF , 803px 1577px #FFF , 49px 590px #FFF , 105px 1943px #FFF , 1644px 1513px #FFF , 1137px 795px #FFF , 1496px 1588px #FFF , 4px 359px #FFF , 1218px 1587px #FFF , 65px 1489px #FFF , 995px 867px #FFF , 858px 1743px #FFF , 405px 1547px #FFF , 1464px 154px #FFF , 1315px 282px #FFF , 1585px 719px #FFF , 1036px 1607px #FFF , 1086px 578px #FFF , 19px 1663px #FFF , 1675px 22px #FFF , 983px 1795px #FFF , 1561px 70px #FFF , 162px 521px #FFF , 1133px 371px #FFF , 220px 1892px #FFF , 903px 21px #FFF , 1903px 601px #FFF , 732px 181px #FFF , 512px 620px #FFF , 1753px 1193px #FFF , 179px 1993px #FFF , 81px 31px #FFF , 1554px 1496px #FFF , 194px 854px #FFF , 551px 1615px #FFF , 132px 297px #FFF , 278px 1777px #FFF , 830px 1709px #FFF , 6px 1875px #FFF , 444px 1098px #FFF , 1245px 733px #FFF , 475px 1124px #FFF , 771px 1773px #FFF , 1688px 461px #FFF , 1450px 1613px #FFF , 657px 573px #FFF , 50px 1149px #FFF , 1104px 2px #FFF , 400px 1357px #FFF , 360px 423px #FFF , 945px 253px #FFF , 1611px 202px #FFF , 1984px 697px #FFF , 292px 239px #FFF , 995px 165px #FFF , 1960px 1260px #FFF , 204px 731px #FFF , 107px 1964px #FFF , 738px 1217px #FFF , 1146px 894px #FFF , 529px 1264px #FFF , 664px 121px #FFF , 312px 1792px #FFF , 159px 1607px #FFF , 1132px 201px #FFF , 559px 1817px #FFF , 345px 942px #FFF , 1732px 652px #FFF , 376px 1565px #FFF , 1837px 571px #FFF , 114px 1678px #FFF , 1407px 129px #FFF , 987px 1px #FFF , 738px 380px #FFF , 1808px 921px #FFF , 559px 1673px #FFF , 385px 876px #FFF , 1213px 706px #FFF , 1040px 1015px #FFF , 1693px 1867px #FFF , 395px 560px #FFF , 346px 256px #FFF , 268px 1597px #FFF , 896px 196px #FFF , 1215px 930px #FFF , 39px 364px #FFF , 1723px 1763px #FFF , 60px 181px #FFF , 1093px 1893px #FFF , 1076px 330px #FFF , 938px 661px #FFF , 1170px 1625px #FFF , 774px 1019px #FFF , 248px 763px #FFF , 1158px 1536px #FFF , 798px 1082px #FFF , 1062px 438px #FFF , 1608px 1027px #FFF , 1473px 1297px #FFF , 1338px 670px #FFF , 583px 1045px #FFF , 509px 1385px #FFF , 604px 178px #FFF , 1294px 718px #FFF , 458px 1807px #FFF , 1067px 33px #FFF , 128px 1765px #FFF , 1386px 1167px #FFF , 667px 1704px #FFF , 812px 1363px #FFF , 1613px 1103px #FFF , 469px 1334px #FFF , 1945px 964px #FFF , 1435px 1959px #FFF , 1588px 1219px #FFF , 435px 1559px #FFF , 1140px 1670px #FFF , 54px 1472px #FFF , 1928px 645px #FFF , 80px 681px #FFF , 711px 404px #FFF , 520px 24px #FFF , 1637px 1201px #FFF , 1882px 1049px #FFF , 472px 1161px #FFF , 1389px 373px #FFF , 593px 1578px #FFF , 1013px 1671px #FFF;
+            animation: animStar 50s linear infinite;
+        }
+        #stars:after {
+            content: " ";
+            position: absolute;
+            top: 2000px;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 1158px 1614px #FFF , 100px 781px #FFF , 1042px 232px #FFF , 1798px 642px #FFF , 897px 199px #FFF , 414px 779px #FFF , 334px 1632px #FFF , 360px 604px #FFF , 1473px 1271px #FFF , 216px 51px #FFF , 520px 744px #FFF , 1846px 1666px #FFF , 1689px 749px #FFF , 1268px 417px #FFF , 394px 1674px #FFF , 1505px 1529px #FFF , 765px 1388px #FFF , 1068px 1686px #FFF , 1994px 137px #FFF , 888px 1604px #FFF , 1115px 306px #FFF , 1073px 1448px #FFF , 443px 963px #FFF , 790px 817px #FFF , 667px 900px #FFF , 64px 819px #FFF , 1054px 89px #FFF , 1989px 24px #FFF , 467px 651px #FFF , 67px 767px #FFF , 703px 74px #FFF , 1565px 1569px #FFF , 426px 1512px #FFF , 228px 357px #FFF , 1594px 293px #FFF , 1190px 66px #FFF , 1638px 1506px #FFF , 1431px 1674px #FFF , 1337px 1642px #FFF , 60px 1761px #FFF , 1689px 297px #FFF , 807px 542px #FFF , 1773px 1228px #FFF , 500px 1714px #FFF , 307px 46px #FFF , 298px 1488px #FFF , 1027px 166px #FFF , 1995px 1198px #FFF , 615px 1099px #FFF , 1577px 397px #FFF , 1849px 1700px #FFF , 1879px 1349px #FFF , 934px 1689px #FFF , 66px 1200px #FFF , 1295px 42px #FFF , 1984px 747px #FFF , 150px 953px #FFF , 173px 1743px #FFF , 25px 315px #FFF , 57px 216px #FFF , 119px 513px #FFF , 895px 466px #FFF , 1600px 1276px #FFF , 615px 357px #FFF , 870px 630px #FFF , 1281px 1817px #FFF , 939px 1028px #FFF , 1166px 1725px #FFF , 1048px 758px #FFF , 209px 1817px #FFF , 1747px 520px #FFF , 795px 544px #FFF , 646px 1056px #FFF , 771px 192px #FFF , 503px 509px #FFF , 142px 1514px #FFF , 315px 1482px #FFF , 1911px 581px #FFF , 41px 243px #FFF , 608px 1822px #FFF , 1373px 1241px #FFF , 1938px 1316px #FFF , 1574px 1364px #FFF , 372px 527px #FFF , 1851px 1998px #FFF , 697px 967px #FFF , 925px 1573px #FFF , 741px 1960px #FFF , 1485px 467px #FFF , 283px 489px #FFF , 1334px 642px #FFF , 387px 71px #FFF , 689px 1604px #FFF , 177px 1763px #FFF , 12px 1757px #FFF , 938px 416px #FFF , 1848px 1534px #FFF , 614px 946px #FFF , 1935px 309px #FFF , 961px 741px #FFF , 1466px 986px #FFF , 563px 619px #FFF , 133px 488px #FFF , 56px 1110px #FFF , 40px 540px #FFF , 788px 1326px #FFF , 1637px 980px #FFF , 1145px 667px #FFF , 400px 1989px #FFF , 960px 1225px #FFF , 1537px 491px #FFF , 749px 504px #FFF , 1621px 1953px #FFF , 551px 1747px #FFF , 1143px 1612px #FFF , 22px 1834px #FFF , 1904px 1323px #FFF , 478px 1851px #FFF , 74px 390px #FFF , 1179px 1309px #FFF , 295px 78px #FFF , 57px 1242px #FFF , 175px 1155px #FFF , 1105px 1330px #FFF , 552px 1717px #FFF , 451px 1922px #FFF , 5px 1342px #FFF , 1443px 1160px #FFF , 216px 1730px #FFF , 918px 1285px #FFF , 892px 705px #FFF , 1871px 990px #FFF , 467px 1208px #FFF , 963px 294px #FFF , 1594px 1454px #FFF , 1548px 1529px #FFF , 1609px 113px #FFF , 347px 331px #FFF , 557px 1396px #FFF , 308px 844px #FFF , 1042px 382px #FFF , 66px 1285px #FFF , 1501px 368px #FFF , 25px 1964px #FFF , 675px 439px #FFF , 905px 1445px #FFF , 1366px 104px #FFF , 1883px 24px #FFF , 33px 627px #FFF , 1430px 1397px #FFF , 679px 966px #FFF , 608px 833px #FFF , 484px 720px #FFF , 1074px 384px #FFF , 334px 1166px #FFF , 991px 767px #FFF , 112px 513px #FFF , 411px 1859px #FFF , 1843px 1488px #FFF , 1029px 1278px #FFF , 1132px 174px #FFF , 1989px 1639px #FFF , 1399px 1385px #FFF , 1796px 1326px #FFF , 1083px 428px #FFF , 1872px 1696px #FFF , 931px 1552px #FFF , 316px 1412px #FFF , 244px 606px #FFF , 203px 871px #FFF , 1560px 811px #FFF , 1500px 110px #FFF , 263px 453px #FFF , 1570px 465px #FFF , 1393px 1022px #FFF , 1567px 612px #FFF , 728px 1771px #FFF , 1310px 1508px #FFF , 252px 2px #FFF , 1387px 786px #FFF , 1709px 620px #FFF , 1828px 931px #FFF , 1630px 92px #FFF , 1349px 1457px #FFF , 561px 1639px #FFF , 51px 1230px #FFF , 1969px 623px #FFF , 607px 1494px #FFF , 1956px 1716px #FFF , 1941px 302px #FFF , 187px 309px #FFF , 959px 1943px #FFF , 1386px 914px #FFF , 1860px 1165px #FFF , 1502px 232px #FFF , 421px 1522px #FFF , 472px 761px #FFF , 32px 1025px #FFF , 1754px 626px #FFF , 1704px 473px #FFF , 978px 1402px #FFF , 546px 967px #FFF , 600px 1455px #FFF , 1342px 227px #FFF , 899px 1099px #FFF , 552px 1276px #FFF , 1333px 1180px #FFF , 25px 964px #FFF , 1497px 1987px #FFF , 472px 60px #FFF , 77px 588px #FFF , 941px 1654px #FFF , 1979px 271px #FFF , 1926px 1226px #FFF , 197px 302px #FFF , 1249px 1271px #FFF , 1975px 1015px #FFF , 535px 1076px #FFF , 1559px 662px #FFF , 474px 889px #FFF , 541px 1495px #FFF , 1685px 767px #FFF , 554px 717px #FFF , 1105px 1600px #FFF , 1972px 393px #FFF , 582px 789px #FFF , 100px 1931px #FFF , 744px 396px #FFF , 1047px 1429px #FFF , 1838px 546px #FFF , 125px 1696px #FFF , 673px 1354px #FFF , 1548px 1499px #FFF , 719px 87px #FFF , 1710px 373px #FFF , 1894px 733px #FFF , 1065px 1040px #FFF , 917px 282px #FFF , 1909px 483px #FFF , 1052px 1889px #FFF , 974px 518px #FFF , 1607px 366px #FFF , 1227px 1303px #FFF , 1187px 558px #FFF , 151px 770px #FFF , 61px 1576px #FFF , 617px 45px #FFF , 746px 1360px #FFF , 1490px 866px #FFF , 717px 702px #FFF , 1212px 1882px #FFF , 1550px 129px #FFF , 161px 1522px #FFF , 520px 1559px #FFF , 1840px 1515px #FFF , 289px 1634px #FFF , 1495px 491px #FFF , 1372px 1568px #FFF , 1452px 1342px #FFF , 1155px 255px #FFF , 328px 549px #FFF , 955px 1033px #FFF , 423px 1805px #FFF , 1427px 1413px #FFF , 694px 819px #FFF , 1032px 1465px #FFF , 1654px 14px #FFF , 953px 1010px #FFF , 1699px 111px #FFF , 544px 451px #FFF , 228px 1436px #FFF , 469px 498px #FFF , 820px 1721px #FFF , 992px 598px #FFF , 683px 434px #FFF , 807px 1150px #FFF , 695px 1719px #FFF , 1481px 1827px #FFF , 12px 1259px #FFF , 1532px 1219px #FFF , 1924px 1262px #FFF , 771px 441px #FFF , 659px 1038px #FFF , 69px 1266px #FFF , 1913px 1397px #FFF , 704px 1544px #FFF , 1616px 1431px #FFF , 346px 1638px #FFF , 1152px 803px #FFF , 1234px 1659px #FFF , 198px 1215px #FFF , 674px 306px #FFF , 1721px 1979px #FFF , 1252px 1273px #FFF , 1068px 985px #FFF , 543px 1038px #FFF , 1995px 403px #FFF , 247px 1805px #FFF , 1221px 1831px #FFF , 964px 909px #FFF , 39px 1652px #FFF , 455px 1026px #FFF , 1150px 993px #FFF , 1550px 710px #FFF , 1430px 1885px #FFF , 1940px 694px #FFF , 561px 645px #FFF , 954px 354px #FFF , 1901px 953px #FFF , 1067px 5px #FFF , 274px 663px #FFF , 542px 1491px #FFF , 1716px 1901px #FFF , 1686px 1477px #FFF , 1999px 992px #FFF , 879px 230px #FFF , 1576px 403px #FFF , 1633px 50px #FFF , 1607px 1225px #FFF , 30px 1290px #FFF , 227px 1941px #FFF , 295px 433px #FFF , 913px 1825px #FFF , 67px 68px #FFF , 1440px 974px #FFF , 386px 789px #FFF , 1833px 1641px #FFF , 988px 1320px #FFF , 833px 65px #FFF , 1314px 263px #FFF , 1977px 1947px #FFF , 1578px 1279px #FFF , 1335px 1499px #FFF , 1660px 1950px #FFF , 217px 1520px #FFF , 62px 1673px #FFF , 1921px 1764px #FFF , 494px 839px #FFF , 1401px 1600px #FFF , 981px 1789px #FFF , 49px 1822px #FFF , 978px 1085px #FFF , 479px 33px #FFF , 421px 1750px #FFF , 88px 356px #FFF , 1582px 1623px #FFF , 1378px 659px #FFF , 1550px 1919px #FFF , 1501px 987px #FFF , 578px 1391px #FFF , 728px 715px #FFF , 740px 486px #FFF , 291px 411px #FFF , 968px 1489px #FFF , 557px 1083px #FFF , 253px 1872px #FFF , 1489px 953px #FFF , 1085px 1614px #FFF , 205px 1662px #FFF , 845px 724px #FFF , 718px 520px #FFF , 432px 1064px #FFF , 608px 1152px #FFF , 1257px 526px #FFF , 1010px 1711px #FFF , 438px 51px #FFF , 185px 1540px #FFF , 223px 1648px #FFF , 1844px 953px #FFF , 979px 1158px #FFF , 602px 1175px #FFF , 1786px 1754px #FFF , 1562px 1229px #FFF , 1431px 1183px #FFF , 89px 928px #FFF , 1660px 1965px #FFF , 907px 877px #FFF , 1085px 1566px #FFF , 274px 316px #FFF , 1251px 634px #FFF , 921px 1911px #FFF , 1075px 1323px #FFF , 225px 1119px #FFF , 1079px 303px #FFF , 45px 632px #FFF , 1165px 610px #FFF , 1071px 1204px #FFF , 1979px 1334px #FFF , 128px 1207px #FFF , 1636px 1711px #FFF , 1449px 1227px #FFF , 1082px 262px #FFF , 1629px 1786px #FFF , 1072px 610px #FFF , 481px 1910px #FFF , 1804px 356px #FFF , 1935px 1794px #FFF , 1336px 181px #FFF , 1098px 1584px #FFF , 1625px 205px #FFF , 1099px 1718px #FFF , 165px 102px #FFF , 334px 970px #FFF , 1723px 296px #FFF , 1904px 325px #FFF , 1135px 596px #FFF , 340px 729px #FFF , 767px 1772px #FFF , 994px 41px #FFF , 1187px 692px #FFF , 624px 681px #FFF , 191px 1389px #FFF , 997px 399px #FFF , 1988px 1076px #FFF , 1019px 1869px #FFF , 1705px 269px #FFF , 1px 454px #FFF , 24px 1039px #FFF , 1335px 133px #FFF , 389px 1254px #FFF , 969px 3px #FFF , 1780px 390px #FFF , 1651px 47px #FFF , 1201px 355px #FFF , 1656px 1304px #FFF , 918px 618px #FFF , 67px 1167px #FFF , 361px 871px #FFF , 1378px 1314px #FFF , 208px 253px #FFF , 225px 421px #FFF , 768px 877px #FFF , 1288px 1550px #FFF , 1408px 715px #FFF , 1443px 148px #FFF , 841px 807px #FFF , 969px 249px #FFF , 1836px 305px #FFF , 63px 803px #FFF , 877px 734px #FFF , 914px 1175px #FFF , 1710px 1503px #FFF , 1572px 731px #FFF , 960px 1168px #FFF , 149px 1328px #FFF , 388px 1766px #FFF , 24px 1263px #FFF , 1774px 1475px #FFF , 1606px 371px #FFF , 594px 1238px #FFF , 1926px 819px #FFF , 730px 666px #FFF , 1095px 1764px #FFF , 581px 837px #FFF , 351px 1478px #FFF , 1881px 1666px #FFF , 482px 1739px #FFF , 246px 1595px #FFF , 174px 379px #FFF , 667px 845px #FFF , 526px 1585px #FFF , 875px 1884px #FFF , 1871px 450px #FFF , 1701px 1167px #FFF , 891px 662px #FFF , 762px 154px #FFF , 1514px 367px #FFF , 1101px 1082px #FFF , 1641px 1555px #FFF , 1184px 22px #FFF , 1973px 1165px #FFF , 623px 1128px #FFF , 1365px 148px #FFF , 842px 1705px #FFF , 1327px 1021px #FFF , 1576px 783px #FFF , 683px 886px #FFF , 702px 1862px #FFF , 523px 689px #FFF , 1289px 1117px #FFF , 1223px 378px #FFF , 166px 1416px #FFF , 1660px 76px #FFF , 457px 849px #FFF , 1301px 1521px #FFF , 627px 1035px #FFF , 1514px 1030px #FFF , 206px 1660px #FFF , 1189px 535px #FFF , 1207px 1965px #FFF , 591px 428px #FFF , 1248px 919px #FFF , 227px 953px #FFF , 74px 632px #FFF , 1216px 1010px #FFF , 729px 802px #FFF , 281px 1920px #FFF , 89px 294px #FFF , 1690px 1202px #FFF , 1604px 1773px #FFF , 1573px 1056px #FFF , 482px 368px #FFF , 814px 1139px #FFF , 280px 864px #FFF , 1391px 228px #FFF , 549px 692px #FFF , 938px 1348px #FFF , 1627px 1874px #FFF , 1454px 49px #FFF , 477px 588px #FFF , 362px 1695px #FFF , 1495px 615px #FFF , 1305px 710px #FFF , 1607px 1630px #FFF , 1614px 319px #FFF , 380px 1225px #FFF , 1210px 1615px #FFF , 1707px 1475px #FFF , 1107px 346px #FFF , 1981px 1073px #FFF , 1002px 224px #FFF , 869px 453px #FFF , 1507px 557px #FFF , 1848px 673px #FFF , 71px 32px #FFF , 1147px 1937px #FFF , 1848px 1743px #FFF , 1790px 500px #FFF , 557px 572px #FFF , 872px 756px #FFF , 1875px 1253px #FFF , 1986px 347px #FFF , 264px 637px #FFF , 1960px 1813px #FFF , 855px 923px #FFF , 1447px 1450px #FFF , 1069px 38px #FFF , 1304px 1328px #FFF , 402px 812px #FFF , 371px 1691px #FFF , 1772px 1490px #FFF , 1574px 1703px #FFF , 1487px 346px #FFF , 1230px 636px #FFF , 1082px 1463px #FFF , 1364px 1176px #FFF , 668px 1806px #FFF , 60px 1949px #FFF , 1352px 36px #FFF , 1022px 796px #FFF , 1592px 908px #FFF , 1943px 150px #FFF , 865px 583px #FFF , 1387px 711px #FFF , 1605px 1560px #FFF , 1533px 1138px #FFF , 176px 995px #FFF , 924px 1412px #FFF , 1458px 1007px #FFF , 213px 709px #FFF , 1995px 1557px #FFF , 1874px 598px #FFF , 1287px 359px #FFF , 970px 28px #FFF , 768px 1377px #FFF , 820px 938px #FFF , 783px 373px #FFF , 1452px 1058px #FFF , 240px 72px #FFF , 1153px 1163px #FFF , 1068px 1292px #FFF , 154px 240px #FFF , 1724px 896px #FFF , 803px 1577px #FFF , 49px 590px #FFF , 105px 1943px #FFF , 1644px 1513px #FFF , 1137px 795px #FFF , 1496px 1588px #FFF , 4px 359px #FFF , 1218px 1587px #FFF , 65px 1489px #FFF , 995px 867px #FFF , 858px 1743px #FFF , 405px 1547px #FFF , 1464px 154px #FFF , 1315px 282px #FFF , 1585px 719px #FFF , 1036px 1607px #FFF , 1086px 578px #FFF , 19px 1663px #FFF , 1675px 22px #FFF , 983px 1795px #FFF , 1561px 70px #FFF , 162px 521px #FFF , 1133px 371px #FFF , 220px 1892px #FFF , 903px 21px #FFF , 1903px 601px #FFF , 732px 181px #FFF , 512px 620px #FFF , 1753px 1193px #FFF , 179px 1993px #FFF , 81px 31px #FFF , 1554px 1496px #FFF , 194px 854px #FFF , 551px 1615px #FFF , 132px 297px #FFF , 278px 1777px #FFF , 830px 1709px #FFF , 6px 1875px #FFF , 444px 1098px #FFF , 1245px 733px #FFF , 475px 1124px #FFF , 771px 1773px #FFF , 1688px 461px #FFF , 1450px 1613px #FFF , 657px 573px #FFF , 50px 1149px #FFF , 1104px 2px #FFF , 400px 1357px #FFF , 360px 423px #FFF , 945px 253px #FFF , 1611px 202px #FFF , 1984px 697px #FFF , 292px 239px #FFF , 995px 165px #FFF , 1960px 1260px #FFF , 204px 731px #FFF , 107px 1964px #FFF , 738px 1217px #FFF , 1146px 894px #FFF , 529px 1264px #FFF , 664px 121px #FFF , 312px 1792px #FFF , 159px 1607px #FFF , 1132px 201px #FFF , 559px 1817px #FFF , 345px 942px #FFF , 1732px 652px #FFF , 376px 1565px #FFF , 1837px 571px #FFF , 114px 1678px #FFF , 1407px 129px #FFF , 987px 1px #FFF , 738px 380px #FFF , 1808px 921px #FFF , 559px 1673px #FFF , 385px 876px #FFF , 1213px 706px #FFF , 1040px 1015px #FFF , 1693px 1867px #FFF , 395px 560px #FFF , 346px 256px #FFF , 268px 1597px #FFF , 896px 196px #FFF , 1215px 930px #FFF , 39px 364px #FFF , 1723px 1763px #FFF , 60px 181px #FFF , 1093px 1893px #FFF , 1076px 330px #FFF , 938px 661px #FFF , 1170px 1625px #FFF , 774px 1019px #FFF , 248px 763px #FFF , 1158px 1536px #FFF , 798px 1082px #FFF , 1062px 438px #FFF , 1608px 1027px #FFF , 1473px 1297px #FFF , 1338px 670px #FFF , 583px 1045px #FFF , 509px 1385px #FFF , 604px 178px #FFF , 1294px 718px #FFF , 458px 1807px #FFF , 1067px 33px #FFF , 128px 1765px #FFF , 1386px 1167px #FFF , 667px 1704px #FFF , 812px 1363px #FFF , 1613px 1103px #FFF , 469px 1334px #FFF , 1945px 964px #FFF , 1435px 1959px #FFF , 1588px 1219px #FFF , 435px 1559px #FFF , 1140px 1670px #FFF , 54px 1472px #FFF , 1928px 645px #FFF , 80px 681px #FFF , 711px 404px #FFF , 520px 24px #FFF , 1637px 1201px #FFF , 1882px 1049px #FFF , 472px 1161px #FFF , 1389px 373px #FFF , 593px 1578px #FFF , 1013px 1671px #FFF;
+        }
+
+        #stars2 {
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            box-shadow: 1383px 1674px #FFF , 694px 24px #FFF , 1592px 816px #FFF , 1371px 885px #FFF , 1016px 1734px #FFF , 1906px 1441px #FFF , 1401px 685px #FFF , 1521px 1416px #FFF , 1401px 1806px #FFF , 1053px 1675px #FFF , 1834px 363px #FFF , 113px 1606px #FFF , 1466px 972px #FFF , 1909px 684px #FFF , 43px 1511px #FFF , 1219px 1499px #FFF , 515px 114px #FFF , 13px 1784px #FFF , 784px 1726px #FFF , 820px 1189px #FFF , 1087px 862px #FFF , 1723px 295px #FFF , 1338px 1932px #FFF , 1874px 1035px #FFF , 1208px 1166px #FFF , 42px 264px #FFF , 1736px 1523px #FFF , 1950px 579px #FFF , 1019px 1699px #FFF , 344px 1107px #FFF , 724px 757px #FFF , 324px 1143px #FFF , 1387px 2000px #FFF , 787px 822px #FFF , 1724px 482px #FFF , 136px 1653px #FFF , 77px 35px #FFF , 50px 573px #FFF , 1142px 241px #FFF , 1921px 186px #FFF , 2px 537px #FFF , 1690px 1712px #FFF , 1120px 1158px #FFF , 96px 115px #FFF , 1507px 426px #FFF , 1841px 784px #FFF , 123px 939px #FFF , 1890px 149px #FFF , 960px 1826px #FFF , 1752px 784px #FFF , 845px 1193px #FFF , 666px 1679px #FFF , 60px 1711px #FFF , 751px 1039px #FFF , 1875px 1010px #FFF , 1225px 1977px #FFF , 1788px 588px #FFF , 1440px 567px #FFF , 575px 322px #FFF , 514px 1689px #FFF , 1979px 1564px #FFF , 1218px 1750px #FFF , 581px 526px #FFF , 117px 1610px #FFF , 1526px 690px #FFF , 76px 572px #FFF , 1410px 1237px #FFF , 1000px 1498px #FFF , 544px 1595px #FFF , 1861px 1587px #FFF , 733px 1690px #FFF , 209px 1154px #FFF , 1364px 1918px #FFF , 1031px 1238px #FFF , 1439px 917px #FFF , 210px 1809px #FFF , 1404px 1822px #FFF , 765px 421px #FFF , 1552px 1104px #FFF , 1368px 1862px #FFF , 1826px 917px #FFF , 922px 1982px #FFF , 615px 91px #FFF , 1741px 1044px #FFF , 801px 635px #FFF , 253px 1053px #FFF , 789px 1723px #FFF , 1237px 493px #FFF , 302px 639px #FFF , 1277px 1862px #FFF , 732px 557px #FFF , 61px 794px #FFF , 706px 956px #FFF , 1894px 1419px #FFF , 780px 538px #FFF , 1758px 817px #FFF , 374px 1632px #FFF , 1885px 1064px #FFF , 131px 1548px #FFF , 1518px 366px #FFF , 1054px 1667px #FFF , 1488px 1126px #FFF , 868px 1750px #FFF , 1388px 31px #FFF , 1486px 1798px #FFF , 885px 1626px #FFF , 1145px 663px #FFF , 16px 528px #FFF , 1396px 1581px #FFF , 615px 1889px #FFF , 980px 636px #FFF , 150px 1626px #FFF , 69px 29px #FFF , 1497px 1157px #FFF , 1000px 30px #FFF , 714px 543px #FFF , 1908px 173px #FFF , 685px 1703px #FFF , 818px 1872px #FFF , 1091px 1660px #FFF , 1719px 831px #FFF , 1775px 1368px #FFF , 991px 652px #FFF , 621px 444px #FFF , 1181px 57px #FFF , 1493px 1506px #FFF , 1647px 223px #FFF , 1412px 743px #FFF , 1054px 1445px #FFF , 1926px 1581px #FFF , 1920px 623px #FFF , 1223px 1781px #FFF , 1px 860px #FFF , 655px 1111px #FFF , 1548px 1957px #FFF , 1686px 1012px #FFF , 1756px 1378px #FFF , 604px 486px #FFF , 1681px 1694px #FFF , 1881px 424px #FFF , 1735px 1652px #FFF , 1272px 1110px #FFF , 1815px 1997px #FFF , 1494px 1120px #FFF , 302px 554px #FFF , 402px 1682px #FFF , 1630px 1052px #FFF , 582px 439px #FFF , 1885px 1404px #FFF , 1949px 1443px #FFF , 1644px 431px #FFF , 91px 1913px #FFF , 1185px 1165px #FFF , 1726px 1892px #FFF , 1387px 24px #FFF , 1955px 708px #FFF , 785px 345px #FFF , 91px 1811px #FFF , 472px 970px #FFF , 620px 772px #FFF , 1640px 1424px #FFF , 1471px 1235px #FFF , 299px 792px #FFF , 1991px 323px #FFF , 1091px 788px #FFF , 1941px 1808px #FFF , 653px 1929px #FFF , 1313px 715px #FFF , 478px 1144px #FFF , 863px 470px #FFF , 1168px 770px #FFF , 796px 1141px #FFF , 1259px 1896px #FFF , 1865px 576px #FFF , 737px 727px #FFF , 804px 836px #FFF , 1469px 710px #FFF , 1090px 770px #FFF , 1218px 708px #FFF , 1399px 440px #FFF , 536px 277px #FFF , 581px 585px #FFF , 998px 336px #FFF , 1852px 455px #FFF , 809px 177px #FFF , 405px 1739px #FFF , 243px 1134px #FFF , 1586px 1426px #FFF , 219px 1412px #FFF , 501px 347px #FFF , 824px 334px #FFF , 1709px 1272px #FFF , 1250px 972px #FFF , 687px 865px #FFF , 1059px 1998px #FFF , 1511px 976px #FFF , 1081px 97px #FFF , 579px 1121px #FFF , 1303px 827px #FFF , 1845px 1435px #FFF;
+            animation: animStar 100s linear infinite;
+        }
+        #stars2:after {
+            content: " ";
+            position: absolute;
+            top: 2000px;
+            width: 2px;
+            height: 2px;
+            background: transparent;
+            box-shadow: 1383px 1674px #FFF , 694px 24px #FFF , 1592px 816px #FFF , 1371px 885px #FFF , 1016px 1734px #FFF , 1906px 1441px #FFF , 1401px 685px #FFF , 1521px 1416px #FFF , 1401px 1806px #FFF , 1053px 1675px #FFF , 1834px 363px #FFF , 113px 1606px #FFF , 1466px 972px #FFF , 1909px 684px #FFF , 43px 1511px #FFF , 1219px 1499px #FFF , 515px 114px #FFF , 13px 1784px #FFF , 784px 1726px #FFF , 820px 1189px #FFF , 1087px 862px #FFF , 1723px 295px #FFF , 1338px 1932px #FFF , 1874px 1035px #FFF , 1208px 1166px #FFF , 42px 264px #FFF , 1736px 1523px #FFF , 1950px 579px #FFF , 1019px 1699px #FFF , 344px 1107px #FFF , 724px 757px #FFF , 324px 1143px #FFF , 1387px 2000px #FFF , 787px 822px #FFF , 1724px 482px #FFF , 136px 1653px #FFF , 77px 35px #FFF , 50px 573px #FFF , 1142px 241px #FFF , 1921px 186px #FFF , 2px 537px #FFF , 1690px 1712px #FFF , 1120px 1158px #FFF , 96px 115px #FFF , 1507px 426px #FFF , 1841px 784px #FFF , 123px 939px #FFF , 1890px 149px #FFF , 960px 1826px #FFF , 1752px 784px #FFF , 845px 1193px #FFF , 666px 1679px #FFF , 60px 1711px #FFF , 751px 1039px #FFF , 1875px 1010px #FFF , 1225px 1977px #FFF , 1788px 588px #FFF , 1440px 567px #FFF , 575px 322px #FFF , 514px 1689px #FFF , 1979px 1564px #FFF , 1218px 1750px #FFF , 581px 526px #FFF , 117px 1610px #FFF , 1526px 690px #FFF , 76px 572px #FFF , 1410px 1237px #FFF , 1000px 1498px #FFF , 544px 1595px #FFF , 1861px 1587px #FFF , 733px 1690px #FFF , 209px 1154px #FFF , 1364px 1918px #FFF , 1031px 1238px #FFF , 1439px 917px #FFF , 210px 1809px #FFF , 1404px 1822px #FFF , 765px 421px #FFF , 1552px 1104px #FFF , 1368px 1862px #FFF , 1826px 917px #FFF , 922px 1982px #FFF , 615px 91px #FFF , 1741px 1044px #FFF , 801px 635px #FFF , 253px 1053px #FFF , 789px 1723px #FFF , 1237px 493px #FFF , 302px 639px #FFF , 1277px 1862px #FFF , 732px 557px #FFF , 61px 794px #FFF , 706px 956px #FFF , 1894px 1419px #FFF , 780px 538px #FFF , 1758px 817px #FFF , 374px 1632px #FFF , 1885px 1064px #FFF , 131px 1548px #FFF , 1518px 366px #FFF , 1054px 1667px #FFF , 1488px 1126px #FFF , 868px 1750px #FFF , 1388px 31px #FFF , 1486px 1798px #FFF , 885px 1626px #FFF , 1145px 663px #FFF , 16px 528px #FFF , 1396px 1581px #FFF , 615px 1889px #FFF , 980px 636px #FFF , 150px 1626px #FFF , 69px 29px #FFF , 1497px 1157px #FFF , 1000px 30px #FFF , 714px 543px #FFF , 1908px 173px #FFF , 685px 1703px #FFF , 818px 1872px #FFF , 1091px 1660px #FFF , 1719px 831px #FFF , 1775px 1368px #FFF , 991px 652px #FFF , 621px 444px #FFF , 1181px 57px #FFF , 1493px 1506px #FFF , 1647px 223px #FFF , 1412px 743px #FFF , 1054px 1445px #FFF , 1926px 1581px #FFF , 1920px 623px #FFF , 1223px 1781px #FFF , 1px 860px #FFF , 655px 1111px #FFF , 1548px 1957px #FFF , 1686px 1012px #FFF , 1756px 1378px #FFF , 604px 486px #FFF , 1681px 1694px #FFF , 1881px 424px #FFF , 1735px 1652px #FFF , 1272px 1110px #FFF , 1815px 1997px #FFF , 1494px 1120px #FFF , 302px 554px #FFF , 402px 1682px #FFF , 1630px 1052px #FFF , 582px 439px #FFF , 1885px 1404px #FFF , 1949px 1443px #FFF , 1644px 431px #FFF , 91px 1913px #FFF , 1185px 1165px #FFF , 1726px 1892px #FFF , 1387px 24px #FFF , 1955px 708px #FFF , 785px 345px #FFF , 91px 1811px #FFF , 472px 970px #FFF , 620px 772px #FFF , 1640px 1424px #FFF , 1471px 1235px #FFF , 299px 792px #FFF , 1991px 323px #FFF , 1091px 788px #FFF , 1941px 1808px #FFF , 653px 1929px #FFF , 1313px 715px #FFF , 478px 1144px #FFF , 863px 470px #FFF , 1168px 770px #FFF , 796px 1141px #FFF , 1259px 1896px #FFF , 1865px 576px #FFF , 737px 727px #FFF , 804px 836px #FFF , 1469px 710px #FFF , 1090px 770px #FFF , 1218px 708px #FFF , 1399px 440px #FFF , 536px 277px #FFF , 581px 585px #FFF , 998px 336px #FFF , 1852px 455px #FFF , 809px 177px #FFF , 405px 1739px #FFF , 243px 1134px #FFF , 1586px 1426px #FFF , 219px 1412px #FFF , 501px 347px #FFF , 824px 334px #FFF , 1709px 1272px #FFF , 1250px 972px #FFF , 687px 865px #FFF , 1059px 1998px #FFF , 1511px 976px #FFF , 1081px 97px #FFF , 579px 1121px #FFF , 1303px 827px #FFF , 1845px 1435px #FFF;
+        }
+
+        #stars3 {
+            width: 3px;
+            height: 3px;
+            background: transparent;
+            box-shadow: 400px 672px #FFF , 142px 1241px #FFF , 933px 1052px #FFF , 1500px 1727px #FFF , 1009px 967px #FFF , 975px 494px #FFF , 1534px 721px #FFF , 1514px 478px #FFF , 648px 1594px #FFF , 1477px 65px #FFF , 14px 1213px #FFF , 1448px 1458px #FFF , 57px 498px #FFF , 1228px 1636px #FFF , 1993px 660px #FFF , 1796px 977px #FFF , 1199px 1158px #FFF , 404px 1665px #FFF , 802px 1123px #FFF , 1181px 464px #FFF , 726px 1328px #FFF , 1692px 348px #FFF , 950px 276px #FFF , 925px 896px #FFF , 1206px 841px #FFF , 941px 1710px #FFF , 1669px 260px #FFF , 98px 9px #FFF , 1509px 293px #FFF , 1541px 1467px #FFF , 127px 1871px #FFF , 1037px 709px #FFF , 1581px 1245px #FFF , 1474px 1703px #FFF , 1943px 1113px #FFF , 503px 381px #FFF , 364px 1929px #FFF , 199px 376px #FFF , 1513px 1686px #FFF , 1773px 271px #FFF , 1316px 1755px #FFF , 571px 1870px #FFF , 1228px 965px #FFF , 816px 120px #FFF , 1874px 1454px #FFF , 1316px 496px #FFF , 1512px 1384px #FFF , 1897px 1680px #FFF , 601px 790px #FFF , 674px 502px #FFF , 1696px 1607px #FFF , 1039px 1479px #FFF , 68px 953px #FFF , 47px 1633px #FFF , 738px 1343px #FFF , 1779px 1548px #FFF , 137px 234px #FFF , 1537px 270px #FFF , 367px 1220px #FFF , 672px 298px #FFF , 1384px 549px #FFF , 21px 601px #FFF , 439px 1609px #FFF , 348px 952px #FFF , 180px 1721px #FFF , 389px 1176px #FFF , 192px 370px #FFF , 1356px 242px #FFF , 1699px 702px #FFF , 7px 611px #FFF , 1691px 433px #FFF , 1464px 472px #FFF , 127px 1602px #FFF , 124px 1974px #FFF , 1794px 1053px #FFF , 283px 1120px #FFF , 1229px 434px #FFF , 1284px 118px #FFF , 83px 628px #FFF , 428px 1662px #FFF , 583px 106px #FFF , 1446px 479px #FFF , 1920px 1757px #FFF , 640px 591px #FFF , 960px 1539px #FFF , 1275px 1645px #FFF , 962px 1620px #FFF , 1599px 1982px #FFF , 1633px 59px #FFF , 371px 1180px #FFF , 348px 870px #FFF , 1462px 525px #FFF , 1134px 216px #FFF , 864px 1305px #FFF , 284px 992px #FFF , 1108px 1007px #FFF , 197px 217px #FFF , 856px 1720px #FFF , 854px 239px #FFF , 758px 952px #FFF;
+            animation: animStar 150s linear infinite;
+        }
+        #stars3:after {
+            content: " ";
+            position: absolute;
+            top: 2000px;
+            width: 3px;
+            height: 3px;
+            background: transparent;
+            box-shadow: 400px 672px #FFF , 142px 1241px #FFF , 933px 1052px #FFF , 1500px 1727px #FFF , 1009px 967px #FFF , 975px 494px #FFF , 1534px 721px #FFF , 1514px 478px #FFF , 648px 1594px #FFF , 1477px 65px #FFF , 14px 1213px #FFF , 1448px 1458px #FFF , 57px 498px #FFF , 1228px 1636px #FFF , 1993px 660px #FFF , 1796px 977px #FFF , 1199px 1158px #FFF , 404px 1665px #FFF , 802px 1123px #FFF , 1181px 464px #FFF , 726px 1328px #FFF , 1692px 348px #FFF , 950px 276px #FFF , 925px 896px #FFF , 1206px 841px #FFF , 941px 1710px #FFF , 1669px 260px #FFF , 98px 9px #FFF , 1509px 293px #FFF , 1541px 1467px #FFF , 127px 1871px #FFF , 1037px 709px #FFF , 1581px 1245px #FFF , 1474px 1703px #FFF , 1943px 1113px #FFF , 503px 381px #FFF , 364px 1929px #FFF , 199px 376px #FFF , 1513px 1686px #FFF , 1773px 271px #FFF , 1316px 1755px #FFF , 571px 1870px #FFF , 1228px 965px #FFF , 816px 120px #FFF , 1874px 1454px #FFF , 1316px 496px #FFF , 1512px 1384px #FFF , 1897px 1680px #FFF , 601px 790px #FFF , 674px 502px #FFF , 1696px 1607px #FFF , 1039px 1479px #FFF , 68px 953px #FFF , 47px 1633px #FFF , 738px 1343px #FFF , 1779px 1548px #FFF , 137px 234px #FFF , 1537px 270px #FFF , 367px 1220px #FFF , 672px 298px #FFF , 1384px 549px #FFF , 21px 601px #FFF , 439px 1609px #FFF , 348px 952px #FFF , 180px 1721px #FFF , 389px 1176px #FFF , 192px 370px #FFF , 1356px 242px #FFF , 1699px 702px #FFF , 7px 611px #FFF , 1691px 433px #FFF , 1464px 472px #FFF , 127px 1602px #FFF , 124px 1974px #FFF , 1794px 1053px #FFF , 283px 1120px #FFF , 1229px 434px #FFF , 1284px 118px #FFF , 83px 628px #FFF , 428px 1662px #FFF , 583px 106px #FFF , 1446px 479px #FFF , 1920px 1757px #FFF , 640px 591px #FFF , 960px 1539px #FFF , 1275px 1645px #FFF , 962px 1620px #FFF , 1599px 1982px #FFF , 1633px 59px #FFF , 371px 1180px #FFF , 348px 870px #FFF , 1462px 525px #FFF , 1134px 216px #FFF , 864px 1305px #FFF , 284px 992px #FFF , 1108px 1007px #FFF , 197px 217px #FFF , 856px 1720px #FFF , 854px 239px #FFF , 758px 952px #FFF;
+        }
+
+        @keyframes animStar {
+            from {
+                transform: translateY(0px);
+            }
+            to {
+                transform: translateY(-2000px);
+            }
+        }
+
+        /* Styles pour le contenu de la section Hero */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Animation UNIFIÉE et FLUIDE pour le sous-titre */
+        @-webkit-keyframes text-pop-up-top {
+          0% {
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
+            -webkit-transform-origin: 50% 50%;
+                    transform-origin: 50% 50%;
+            text-shadow: none;
+          }
+          100% {
+            -webkit-transform: translateY(-50px);
+                    transform: translateY(-50px);
+            -webkit-transform-origin: 50% 50%;
+                    transform-origin: 50% 50%;
+            text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+          }
+        }
+        @keyframes text-pop-up-top {
+          0% {
+            -webkit-transform: translateY(0);
+                    transform: translateY(0);
+            -webkit-transform-origin: 50% 50%;
+                    transform-origin: 50% 50%;
+            text-shadow: none;
+          }
+          100% {
+            -webkit-transform: translateY(-50px);
+                    transform: translateY(-50px);
+            -webkit-transform-origin: 50% 50%;
+                    transform-origin: 50% 50%;
+            text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        /* Styles pour le sous-titre animé */
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            line-height: 1.1;
+            color: white;
+            text-align: center;
+            margin-bottom: 2rem;
+            -webkit-animation: text-pop-up-top 4s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+                    animation: text-pop-up-top 4s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Autres styles existants... */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #1E40AF 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: #6B7280;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #111827;
+        }
+
+        .card-description {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #6B7280;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #1E40AF, #7C3AED);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .sticky-nav {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(0) scale(1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1E40AF, #059669, #7C3AED);
+            background-size: 200% 100%;
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.4s ease;
+        }
+
+        .image-zoom {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .image-zoom:hover {
+            transform: scale(1.08);
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-bounce {
+            animation: bounce 3s infinite;
+        }
+
+        .btn-primary {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            background: linear-gradient(135deg, #1E40AF 0%, #059669 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            40% {
+                transform: translateY(-12px) scale(1.05);
+            }
+            60% {
+                transform: translateY(-6px) scale(1.02);
+            }
+        }
+
+        /* Styles responsifs */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .section-description {
+                font-size: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-subtitle {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+        }
+        /* Styles pour le menu transparent */
+/* Styles pour le menu transparent */
+.nav-transparent {
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.nav-transparent .nav-link {
+    color: white;
+}
+
+.nav-transparent .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-transparent .text-dark {
+    color: white;
+}
+
+/* Styles pour le logo */
+.logo-white {
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+}
+
+.logo-normal {
+    filter: none;
+    transition: filter 0.3s ease;
+}
+
+/* Styles pour le menu sticky avec fond blanc */
+.sticky-nav {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.sticky-nav .nav-link {
+    color: #374151;
+}
+
+.sticky-nav .nav-link:hover {
+    color: #1E40AF;
+}
+
+.sticky-nav .text-dark {
+    color: #111827;
+}
+
+.sticky-nav:hover {
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.96);
+}
+    </style>
+</head>
+<body class="font-sans antialiased bg-light">
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+
+<!-- Navigation -->
+<nav class="nav-transparent fixed top-0 w-full z-50 transition-all duration-300" id="mainNav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <!-- Logo avec animation améliorée -->
+<div class="flex-shrink-0 flex items-center">
+    <div class="relative">
+        <img src="./images/logo.png" alt="Artis Capital Logo" 
+             class="h-12 w-12 object-contain logo-white transition-all duration-300" id="mainLogo">
+    </div>
+</div>
+            
+            <!-- Menu -->
+            <div class="hidden lg:flex items-center space-x-10 ml-16">
+                <a href="#a-propos" class="nav-link text-white hover:text-white/80 px-4 py-3 text-lg font-medium transition-all duration-300">
+                    À propos
+                </a>
+                <a href="#modele-vision" class="nav-link text-white hover:text-white/80 px-4 py-3 text-lg font-medium transition-all duration-300">
+                    Modèle
+                </a>
+                <a href="#secteurs" class="nav-link text-white hover:text-white/80 px-4 py-3 text-lg font-medium transition-all duration-300">
+                    Secteurs
+                </a>
+                <a href="#investisseurs" class="nav-link text-white hover:text-white/80 px-4 py-3 text-lg font-medium transition-all duration-300">
+                    Investisseurs
+                </a>
+                <a href="#contact" class="nav-link text-white hover:text-white/80 px-4 py-3 text-lg font-medium transition-all duration-300">
+                    Contact
+                </a>
+            </div>
+
+            <!-- Bouton menu mobile -->
+            <div class="lg:hidden flex items-center">
+                <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-3 rounded-md text-white hover:text-white/80 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300">
+                    <i data-feather="menu" class="block h-7 w-7"></i>
+                    <i data-feather="x" class="hidden h-7 w-7"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="hidden lg:hidden transform transition-all duration-300 ease-in-out bg-white/95 backdrop-blur-lg" id="mobile-menu">
+        <div class="pt-4 pb-6 space-y-2 px-4">
+            <a href="#a-propos" class="block px-4 py-4 text-lg font-medium text-gray-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-300 border-l-4 border-transparent hover:border-primary">
+                À propos
+            </a>
+            <a href="#modele-vision" class="block px-4 py-4 text-lg font-medium text-gray-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-300 border-l-4 border-transparent hover:border-primary">
+                Modèle
+            </a>
+            <a href="#secteurs" class="block px-4 py-4 text-lg font-medium text-gray-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-300 border-l-4 border-transparent hover:border-primary">
+                Secteurs
+            </a>
+            <a href="#investisseurs" class="block px-4 py-4 text-lg font-medium text-gray-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-300 border-l-4 border-transparent hover:border-primary">
+                Investisseurs
+            </a>
+            <a href="#contact" class="block px-4 py-4 text-lg font-medium text-gray-700 hover:text-primary hover:bg-primary/5 rounded-xl transition-all duration-300 border-l-4 border-transparent hover:border-primary">
+                Contact
+            </a>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section avec fond d'étoiles -->
+    <section class="stars-background text-white overflow-hidden relative min-h-screen flex items-center justify-center">
+        <!-- Étoiles en arrière-plan -->
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        
+        <!-- Contenu principal -->
+        <div class="hero-content w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-24">
+            <div class="text-center w-full" data-aos="fade-up" data-aos-duration="1000">
+                <!-- Titre principal responsive -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-7xl font-bold text-white mb-12 sm:mb-16 lg:mb-20 leading-tight font-serif">
+                    Artis Capital
+                </h1>
+                
+                <!-- Sous-titre responsive TRÈS GRAND et ANIMÉ FLUIDE -->
+                <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    Surveillez le ciel
+                </div>
+                
+                
+            </div>
+        </div>
+        
+        <!-- Indicateur de scroll amélioré -->
+        <div class="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <div class="animate-bounce" data-aos="fade-up" data-aos-delay="800">
+                <i data-feather="chevron-down" class="h-8 w-8 sm:h-10 sm:w-10 text-white/80"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Section À propos -->
+        <section id="a-propos" class="bg-white shadow-2xl rounded-3xl p-8 mb-20 card-hover" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="section-title">À propos</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="section-description mb-6">
+                        Artis Capital est une société panafricaine fondée à Dakar par Artis Mousse Ndane Mbengue. 
+                        Elle agit à la fois comme une holding active et une holding de développement, investissant 
+                        dans des secteurs à fort potentiel et accompagnant la croissance de ses filiales.
+                    </p>
+                    <p class="section-description">
+                        Notre approche unique combine expertise locale et vision stratégique pour créer de la valeur 
+                        durable dans l'écosystème économique sénégalais et au-delà.
+                    </p>
+                </div>
+                <div class="image-container h-64 lg:h-80 rounded-2xl overflow-hidden" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="./images/a-propos.jpg" alt="Artis Capital - À propos" class="w-full h-full object-cover image-zoom">
+                </div>
+            </div>
+        </section>
+
+        <!-- Modèle & Vision Section -->
+        <section id="modele-vision" class="bg-white shadow-2xl rounded-3xl p-8 mb-20 card-hover" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="section-title">Notre Modèle</h2>
+            <h3 class="section-subtitle">Holding active + holding de développement</h3>
+            <p class="section-description mb-8">
+                Une holding détient et gère des participations. Notre singularité : nous pilotons des filiales (active) 
+                tout en construisant de nouvelles entreprises (développement), en alignant des talents complémentaires.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Holding Active -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl card-hover" data-aos="fade-right" data-aos-delay="200" data-aos-duration="600">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary p-4 rounded-xl shadow-lg" style="animation: pulseSoft 3s infinite;">
+                            <i data-feather="target" class="h-8 w-8 text-white"></i>
+                        </div>
+                        <h4 class="card-title ml-4">Holding active</h4>
+                    </div>
+                    <!-- Image pour Holding Active -->
+                    <div class="image-container mb-6 h-48 md:h-64 lg:h-80">
+                        <img src="./images/holding-active.jpg" alt="Holding Active - Gestion stratégique" 
+                            class="w-full h-full object-cover image-zoom">
+                    </div>
+                    <p class="card-description">Une holding active participe directement à la gestion stratégique et opérationnelle de ses filiales.
+                         Artis Capital exerce un rôle moteur dans la planification, la supervision et la valorisation de ses entreprises, 
+                         garantissant cohérence et efficacité globale.</p>
+                </div>
+
+                <!-- Holding Développement -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl card-hover" data-aos="fade-left" data-aos-delay="200" data-aos-duration="600">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-secondary p-4 rounded-xl shadow-lg" style="animation: pulseSoft 3s infinite;">
+                            <i data-feather="layers" class="h-8 w-8 text-white"></i>
+                        </div>
+                        <h4 class="card-title ml-4">Holding de développement</h4>
+                    </div>
+                    <!-- Image pour Holding Développement -->
+                    <div class="image-container mb-6 h-48 md:h-64 lg:h-80">
+                        <img src="./images/holding-developpement.jpg" alt="Holding Développement - Création d'entreprises" 
+                             class="w-full h-full object-cover image-zoom">
+                    </div>
+                    <p class="card-description">La holding de développement identifie, structure et fait émerger de nouvelles entreprises à fort potentiel.
+                         Artis Capital conçoit des projets novateurs, attire des investisseurs et bâtit des écosystèmes durables autour de ses idées.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secteurs Section -->
+        <section id="secteurs" class="mb-20" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="section-title">Secteurs</h2>
+            <h3 class="section-subtitle">Trois axes pour créer de la valeur locale</h3>
+            <p class="section-description mb-8 max-w-3xl">
+                Nous opérons là où l'impact économique et social est direct : loisirs structurés, sécurité alimentaire, résilience rurale.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Divertissement -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl card-hover" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="600">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 p-4 rounded-xl mr-4" style="animation: float 6s ease-in-out infinite;">
+                            <i data-feather="play-circle" class="h-8 w-8 text-primary"></i>
+                        </div>
+                        <h3 class="card-title">Divertissement</h3>
+                    </div>
+                    <!-- Image Divertissement -->
+                    <div class="image-container mb-6 h-48">
+                        <img src="./images/secteur-divertissement.jpg" alt="Secteur Divertissement - Karting et Paintball" 
+                             class="w-full h-full object-cover image-zoom">
+                    </div>
+                    <p class="card-description mb-6">
+                        Dakar CICES Karting : le premier circuit semi-professionnel du Sénégal, symbole de l'économie du loisir et de la jeunesse dynamique.
+                    </p>
+                    <a href="#contact" class="btn-primary text-white px-6 py-3 rounded-lg font-medium w-full text-center block">
+                        Demander un devis
+                    </a>
+                </div>
+
+                <!-- Agriculture -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl card-hover" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 p-4 rounded-xl mr-4" style="animation: float 6s ease-in-out infinite 1s;">
+                            <i data-feather="sun" class="h-8 w-8 text-secondary"></i>
+                        </div>
+                        <h3 class="card-title">Agriculture (Oignon)</h3>
+                    </div>
+                    <!-- Image Agriculture -->
+                    <div class="image-container mb-6 h-48">
+                        <img src="./images/secteur-agriculture.jpg" alt="Secteur Agriculture - Filière Oignon" 
+                             class="w-full h-full object-cover image-zoom">
+                    </div>
+                    <p class="card-description mb-6">
+                        Projets Tarédji & Kaolack : culture d'oignons et valorisation de la paille d'arachide. 
+                        Un modèle agricole performant et durable, au service de la souveraineté alimentaire.
+                    </p>
+                    <a href="#contact" class="btn-primary text-white px-6 py-3 rounded-lg font-medium w-full text-center block">
+                        Proposer un partenariat
+                    </a>
+                </div>
+
+                <!-- Commerce rural -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl card-hover" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="600">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-emerald-100 p-4 rounded-xl mr-4" style="animation: float 6s ease-in-out infinite 2s;">
+                            <i data-feather="shopping-bag" class="h-8 w-8 text-green-500"></i>
+                        </div>
+                        <h3 class="card-title">Commerce rural (Paille)</h3>
+                    </div>
+                    <!-- Image Commerce Rural -->
+                    <div class="image-container mb-6 h-48">
+                        <img src="./images/secteur-commerce-rural.jpg" alt="Secteur Commerce Rural - Paille d'arachide" 
+                             class="w-full h-full object-cover image-zoom">
+                    </div>
+                    <p class="card-description mb-6">
+                        Ngogne Commerce : développement d'un réseau de distribution et de transformation locale favorisant la création de valeur sur le territoire sénégalais.
+                    </p>
+                    <a href="#contact" class="btn-primary text-white px-6 py-3 rounded-lg font-medium w-full text-center block">
+                        Devenir fournisseur/acheteur
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investisseurs Section -->
+        <section id="investisseurs" class="bg-white shadow-2xl rounded-3xl p-8 mb-20 card-hover" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="section-title">Investisseurs & Partenariats</h2>
+            <p class="section-description mb-8 max-w-3xl">
+                Artis Capital s'appuie sur des modèles d'investissement et de partenariat adaptés aux besoins des acteurs publics et privés
+                 souhaitant s'impliquer dans des projets à fort impact.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Création de valeur -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl card-hover" data-aos="fade-right" data-aos-delay="100" data-aos-duration="600">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-primary p-4 rounded-xl shadow-lg" style="animation: pulseSoft 3s infinite;">
+                            <i data-feather="bar-chart-2" class="h-8 w-8 text-white"></i>
+                        </div>
+                        <h4 class="card-title ml-4">Modèle d'Investissement Direct</h4>
+                    </div>
+                    <p class="card-description mb-6">
+                        Les investisseurs peuvent injecter des fonds directement dans les projets opérationnels
+                         (Dakar CICES Karting, agriculture, commerce) en échange de parts de revenus ou de participation au capital.
+                          Ce modèle privilégie la transparence et la rentabilité à court terme.
+                    </p>
+                </div>
+
+                <!-- Gouvernance -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl card-hover" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-secondary p-4 rounded-xl shadow-lg" style="animation: pulseSoft 3s infinite;">
+                            <i data-feather="shield" class="h-8 w-8 text-white"></i>
+                        </div>
+                        <h4 class="card-title ml-4">Partenariats Stratégiques</h4>
+                    </div>
+                    <p class="card-description mb-6">
+                        Artis Capital noue des alliances avec des institutions publiques, entreprises et investisseurs
+                         pour développer des infrastructures ou initiatives communes. Chaque partenariat est conçu sur
+                          mesure selon la valeur ajoutée de chaque partie.
+                    </p>
+                </div>
+
+                <!-- Partenariats -->
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-8 rounded-2xl card-hover" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-amber-500 p-4 rounded-xl shadow-lg" style="animation: pulseSoft 3s infinite;">
+                            <i data-feather="users" class="h-8 w-8 text-white"></i>
+                        </div>
+                        <h4 class="card-title ml-4">Joint-Ventures & Co-Développement</h4>
+                    </div>
+                    <p class="card-description mb-6">
+                        Ce modèle permet la création de sociétés mixtes où Artis Capital apporte 
+                        son expertise opérationnelle et son réseau, tandis que le partenaire contribue en capital,
+                         en technologie ou en ressources. Les bénéfices sont partagés équitablement.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Image centrée entre les paragraphes et le bouton -->
+            <div class="flex justify-center my-8" data-aos="zoom-in" data-aos-delay="400">
+                <div class="image-container mb-6 h-48 md:h-64 lg:h-20">
+                    <img src="./images/investisseurs-photo.png" alt="Partnership Artis Capital" class="w-full h-full object-fill image-zoom">
+                </div>
+            </div>
+
+            <p class="section-description mb-8 max-w-3xl text-center mx-auto">
+                Le CICES demeure notre premier partenaire institutionnel,
+                symbole de confiance et de vision commune pour un développement économique durable au Sénégal.
+            </p>
+
+            <!-- Bouton Rejoindre en tant qu'investisseur -->
+            <div class="text-center mt-8" data-aos="fade-up" data-aos-delay="500">
+                <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-xl font-medium text-lg inline-block">
+                    Rejoindre en tant qu'investisseur
+                </a>
+            </div>
+        </section>
+
+        <!-- Galerie d'Images avec Carousel -->
+<section class="mb-20" data-aos="fade-up" data-aos-duration="800">
+    <h2 class="section-title text-center">Galerie</h2>
+    <p class="section-description text-center max-w-2xl mx-auto mb-8">
+        Découvrez nos réalisations et l'impact de nos activités à travers le Sénégal.
+    </p>
+    
+    <!-- Carousel amélioré -->
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <!-- Dupliquer les images pour l'effet de défilement infini -->
+            <div class="carousel-item">
+                <img src="./images/galerie-1.jpg" alt="Projet Artis Capital 1" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-2.jpg" alt="Projet Artis Capital 2" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-3.jpg" alt="Projet Artis Capital 3" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-4.jpg" alt="Projet Artis Capital 4" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-5.jpg" alt="Projet Artis Capital 5" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-6.jpg" alt="Projet Artis Capital 6" class="w-full h-full object-cover">
+            </div>
+            <!-- Duplication pour l'effet infini -->
+            <div class="carousel-item">
+                <img src="./images/galerie-1.jpg" alt="Projet Artis Capital 1" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-2.jpg" alt="Projet Artis Capital 2" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-3.jpg" alt="Projet Artis Capital 3" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-4.jpg" alt="Projet Artis Capital 4" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-5.jpg" alt="Projet Artis Capital 5" class="w-full h-full object-cover">
+            </div>
+            <div class="carousel-item">
+                <img src="./images/galerie-6.jpg" alt="Projet Artis Capital 6" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white shadow-2xl rounded-3xl p-8 mb-20 card-hover" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="section-title">Nous contacter</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="section-subtitle mb-6">Informations de contact</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start group cursor-pointer" data-aos="fade-right" data-aos-delay="100">
+                            <div class="bg-primary/20 p-4 rounded-xl mr-4 group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
+                                <i data-feather="map-pin" class="h-6 w-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark text-lg font-sans">Adresse</h4>
+                                <p class="text-gray-600 mt-1 font-sans">Mermoz, Dakar, Sénégal</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start group cursor-pointer" data-aos="fade-right" data-aos-delay="200">
+                            <div class="bg-primary/20 p-4 rounded-xl mr-4 group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
+                                <i data-feather="mail" class="h-6 w-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark text-lg font-sans">Email</h4>
+                                <p class="text-gray-600 mt-1 font-sans">artise19@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start group cursor-pointer" data-aos="fade-right" data-aos-delay="300">
+                            <div class="bg-primary/20 p-4 rounded-xl mr-4 group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110">
+                                <i data-feather="phone" class="h-6 w-6 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-dark text-lg font-sans">Téléphone</h4>
+                                <p class="text-gray-600 mt-1 font-sans">+221 78 184 50 26</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="section-subtitle mb-6">Envoyez-nous un message</h3>
+                    <form class="space-y-6">
+                        <div data-aos="fade-left" data-aos-delay="100">
+                            <input type="text" placeholder="Votre nom" class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 font-sans">
+                        </div>
+                        <div data-aos="fade-left" data-aos-delay="200">
+                            <input type="email" placeholder="Votre email" class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 font-sans">
+                        </div>
+                        <div data-aos="fade-left" data-aos-delay="300">
+                            <textarea placeholder="Votre message" rows="5" class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 font-sans"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary text-white px-8 py-4 rounded-xl font-medium w-full" data-aos="fade-up" data-aos-delay="400">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <img src="./images/logo-white.png" alt="Artis Capital Logo" class="h-10 w-10 object-contain">
+                        <span class="ml-3 text-2xl font-bold font-serif">Artis Capital</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed font-sans">La référence sénégalaise en investissement structuré, alliant performance économique et vision durable.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-semibold mb-6 font-serif">Navigation</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#a-propos" class="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block font-sans">À propos</a></li>
+                        <li><a href="#modele-vision" class="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block font-sans">Notre Modèle</a></li>
+                        <li><a href="#secteurs" class="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block font-sans">Secteurs</a></li>
+                        <li><a href="#investisseurs" class="text-gray-400 hover:text-white transition-all duration-300 hover:translate-x-2 inline-block font-sans">Investisseurs</a></li>
+                    </ul>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-lg font-semibold mb-6 font-serif">Suivez-nous</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="bg-gray-700 text-white p-3 rounded-xl hover:bg-blue-600 transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 text-white p-3 rounded-xl hover:bg-pink-600 transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                            <i data-feather="instagram"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="#investisseurs" class="btn-primary text-white px-6 py-3 rounded-xl font-medium w-full text-center block">
+                            Devenir partenaire
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-16 pt-8 flex flex-col lg:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 lg:mb-0 font-sans" data-aos="fade-up">© 2025 Artis Capital. Tous droits réservés.</p>
+                <div class="flex space-x-6" data-aos="fade-up" data-aos-delay="100">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-all duration-300 font-sans">Conditions d'utilisation</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-all duration-300 font-sans">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-all duration-300 font-sans">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-out-cubic'
+            });
+
+            feather.replace();
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                const menuIcon = this.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.classList.add('hidden');
+                    this.querySelector('i:not(.hidden)').classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    this.querySelector('i:not(.hidden)').classList.add('hidden');
+                }
+            });
+
+            const loadingBar = document.getElementById('loadingBar');
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                loadingBar.style.width = scrolled + '%';
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+           const nav = document.getElementById('mainNav');
+            const logo = document.getElementById('mainLogo');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    nav.classList.add('sticky-nav');
+                    nav.classList.remove('nav-transparent');
+                    logo.classList.remove('logo-white');
+                    logo.classList.add('logo-normal');
+                } else {
+                    nav.classList.remove('sticky-nav');
+                    nav.classList.add('nav-transparent');
+                    logo.classList.remove('logo-normal');
+                    logo.classList.add('logo-white');
+                }
+            });
+
+            // Animation au survol des cartes
+            document.querySelectorAll('.card-hover').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px) scale(1.02)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-out-cubic'
+            });
+
+            feather.replace();
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                const menuIcon = this.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.classList.add('hidden');
+                    this.querySelector('i:not(.hidden)').classList.remove('hidden');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('hidden');
+                    this.querySelector('i:not(.hidden)').classList.add('hidden');
+                }
+            });
+
+            const loadingBar = document.getElementById('loadingBar');
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                loadingBar.style.width = scrolled + '%';
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            const nav = document.getElementById('mainNav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    nav.classList.add('sticky-nav');
+                } else {
+                    nav.classList.remove('sticky-nav');
+                }
+            });
+
+            // Animation au survol des cartes
+            document.querySelectorAll('.card-hover').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-12px) scale(1.02)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
